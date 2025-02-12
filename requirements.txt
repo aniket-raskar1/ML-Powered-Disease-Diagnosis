@@ -6,3 +6,4 @@ joblib
 matplotlib
 seaborn
 imbalanced-learn
+streamlit-option-menu
