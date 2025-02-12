@@ -2,17 +2,19 @@ import os
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
-
+from pathlib import Path
 
 st.set_page_config(page_title="Prediction of Diseases Outbreak",
                    layout='wide',
                    page_icon='🧑‍⚕️')
 
 
-diabetes_model = pickle.load(open(r"C:\Users\Aniket\OneDrive\Desktop\AICTE Internship\MIcrosoft\Trained Models\diabetes_model.pkl", 'rb'))
-heart_model = pickle.load(open(r"C:\Users\Aniket\OneDrive\Desktop\AICTE Internship\MIcrosoft\Trained Models\heart_model.pkl", 'rb'))
-parkinson_model = pickle.load(open(r"C:\Users\Aniket\OneDrive\Desktop\AICTE Internship\MIcrosoft\Trained Models\parkinsons_model.pkl", 'rb'))
+MODEL_DIR = Path("Trained Models")
 
+# Load models
+diabetes_model = pickle.load(open(MODEL_DIR / "diabetes_model.pkl", "rb"))
+heart_model = pickle.load(open(MODEL_DIR / "heart_model.pkl", "rb"))
+parkinsons_model = pickle.load(open(MODEL_DIR / "parkinsons_model.pkl", "rb"))
 
 with st.sidebar:
     selected = option_menu('Prediction of Diseases Outbreak System',
